@@ -1,0 +1,8 @@
+{
+  "name": "RAZI Portfolio",
+  "description": "A modern, high-end personal portfolio for a web designer and developer featuring skills, services, projects, and contact sections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
