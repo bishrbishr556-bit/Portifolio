@@ -429,14 +429,16 @@ const ProjectsSection = () => {
       title: 'Infinite Heroes',
       desc: 'A bold fantasy-themed branding and game design project featuring epic visual identity, logo design, and promotional artwork for an action RPG gaming experience.',
       tags: ['Graphic Design', 'Branding', 'Game Design', 'Illustration'],
-      img: '/heroes.jpg'
+      img: '/heroes.jpg',
+      liveDemo: 'https://heroseen.vercel.app/'
     },
     {
       title: 'E-Commerce Platform',
       desc: 'PlantBox is a complete e-commerce platform that allows users to buy and sell plants online. It features a user-friendly interface, secure payment integration, and a wide range of plant products.',
       tags: ['E-Commerce', 'Razorpay', 'Online Shopping', 'Wordpress'],
       img: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2670&auto=format&fit=crop',
-      comingSoon: true
+      comingSoon: true,
+      liveDemo: ''
     }
   ];
 
@@ -495,9 +497,20 @@ const ProjectsSection = () => {
               </div>
               <div className="flex gap-4 pt-4">
                 <button className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-full font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-purple-600/20">View Details</button>
-                <button className="flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 py-3 rounded-full font-bold transition-all hover:scale-105 active:scale-95">
-                  <Globe size={18} /> Live Demo
-                </button>
+                {proj.liveDemo ? (
+                  <a
+                    href={proj.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 py-3 rounded-full font-bold transition-all hover:scale-105 active:scale-95"
+                  >
+                    <Globe size={18} /> Live Demo
+                  </a>
+                ) : (
+                  <button className="flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 py-3 rounded-full font-bold transition-all hover:scale-105 active:scale-95">
+                    <Globe size={18} /> Live Demo
+                  </button>
+                )}
               </div>
             </div>
           </div>
