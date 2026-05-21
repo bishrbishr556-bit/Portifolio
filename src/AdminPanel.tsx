@@ -498,10 +498,20 @@ const SettingsPanel = ({ onLogout }: { onLogout: () => void }) => {
 
 // ---- Main Admin Panel ----
 export default function AdminPanel() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(() => sessionStorage.getItem('admin_auth') === 'true');
   const [page, setPage] = useState('dashboard');
 
-  if (!loggedIn) return <LoginScreen onLogin={() => setLoggedIn(true)} />;
+  const handleLogin = () => {
+    sessionStorage.setItem('admin_auth', 'true');
+    setLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('admin_auth');
+    setLoggedIn(false);
+  };
+
+  if (!loggedIn) return <LoginScreen onLogin={handleLogin} />;
 
   const renderPage = () => {
     switch (page) {
@@ -510,7 +520,7 @@ export default function AdminPanel() {
       case 'projects': return <ProjectsManager />;
       case 'about': return <AboutEditor />;
       case 'contact': return <ContactEditor />;
-      case 'settings': return <SettingsPanel onLogout={() => setLoggedIn(false)} />;
+      case 'settings': return <SettingsPanel onLogout={handleLogout} />;
       default: return <Dashboard />;
     }
   };
@@ -522,7 +532,7 @@ export default function AdminPanel() {
         <div className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-cyan-600/5 rounded-full blur-[100px]" />
       </div>
 
-      <Sidebar active={page} setActive={setPage} onLogout={() => setLoggedIn(false)} />
+      <Sidebar active={page} setActive={setPage} onLogout={handleLogout} />
 
       <main className="flex-1 p-8 overflow-y-auto">
         <AnimatePresence mode="wait">
