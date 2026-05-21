@@ -182,8 +182,8 @@ const Dashboard = () => {
 // ---- Projects Manager ----
 const ProjectsManager = () => {
   const [projects, setProjects] = useState([
-    { id: 1, title: 'Infinite Heroes', tags: 'Graphic Design, Branding', liveDemo: 'https://heroseen.vercel.app/', img: '/heroes.jpg' },
-    { id: 2, title: 'E-Commerce Platform', tags: 'E-Commerce, Razorpay', liveDemo: '', img: '' },
+    { id: 1, title: 'Ai Islam', tags: 'Graphic Design, Branding', liveDemo: 'https://aiislam.vercel.app/', img: '/aiislam.jpg' },
+    { id: 2, title: 'Ai Usthad', tags: 'E-Commerce, Razorpay', liveDemo: '', img: '/aiusthad.jpg' },
   ]);
   const [saved, setSaved] = useState(false);
 

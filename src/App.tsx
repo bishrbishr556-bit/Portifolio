@@ -426,19 +426,18 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: 'Infinite Heroes',
-      desc: 'A bold fantasy-themed branding and game design project featuring epic visual identity, logo design, and promotional artwork for an action RPG gaming experience.',
-      tags: ['Graphic Design', 'Branding', 'Game Design', 'Illustration'],
-      img: '/heroes.jpg',
-      liveDemo: 'https://heroseen.vercel.app/'
+      title: 'Ai Islam',
+      desc: 'An intelligent AI-powered platform built for the Muslim community, offering Islamic knowledge, Quran tafsir, Hadith search, prayer guidance, and personalized spiritual assistance — all powered by advanced AI models.',
+      tags: ['React Native', 'Next.js', 'Node.js', 'OpenAI', 'MongoDB', 'Cross-Platform'],
+      img: '/aiislam.jpg',
+      liveDemo: 'https://aiislam.vercel.app/'
     },
     {
-      title: 'E-Commerce Platform',
+      title: 'Ai Usthad',
       desc: 'PlantBox is a complete e-commerce platform that allows users to buy and sell plants online. It features a user-friendly interface, secure payment integration, and a wide range of plant products.',
       tags: ['E-Commerce', 'Razorpay', 'Online Shopping', 'Wordpress'],
-      img: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2670&auto=format&fit=crop',
-      comingSoon: true,
-      liveDemo: ''
+      img: '/aiusthad.jpg',
+      liveDemo: 'https://aiusthad.vercel.app/'
     }
   ];
 
@@ -472,18 +471,10 @@ const ProjectsSection = () => {
               <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/20 to-cyan-400/20 rounded-[2.5rem] blur opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
               <div className="relative rounded-3xl overflow-hidden border border-white/10 aspect-video">
                 <img
-                  referrerPolicy="no-referrer"
                   src={proj.img}
                   alt={proj.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {proj.comingSoon && (
-                  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center">
-                    <span className="bg-amber-500 text-black px-6 py-2 rounded-full text-xs font-bold flex items-center gap-2">
-                      <span className="w-2 h-2 bg-black rounded-full animate-pulse" /> Coming Soon
-                    </span>
-                  </div>
-                )}
               </div>
             </div>
 
@@ -520,7 +511,297 @@ const ProjectsSection = () => {
   );
 };
 
-// --- Work Section ---
+// --- AI Islam Showcase Section ---
+const AiIslamSection = () => (
+  <section id="ai-islam" className="relative overflow-hidden py-32 px-6">
+    {/* Cinematic background */}
+    <div className="absolute inset-0 bg-gradient-to-br from-[#020c10] via-[#030d14] to-[#020a0e]" />
+
+    {/* Animated glow orbs */}
+    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] animate-pulse" />
+    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[160px]" />
+
+    {/* Islamic geometric pattern overlay */}
+    <div className="absolute inset-0 opacity-[0.03]" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2306b6d4' fill-opacity='1'%3E%3Cpath d='M30 0l8.66 5v10L30 20l-8.66-5V5L30 0zm0 40l8.66 5v10L30 60l-8.66-5V45L30 40zM0 20l8.66 5v10L0 40l-8.66-5V25L0 20zm60 0l8.66 5v10L60 40l-8.66-5V25L60 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      backgroundSize: '60px 60px'
+    }} />
+
+    {/* Mosque silhouette at bottom */}
+    <div className="absolute bottom-0 left-0 right-0 h-32 opacity-5 flex items-end justify-center overflow-hidden">
+      <svg viewBox="0 0 1200 200" className="w-full" fill="currentColor">
+        <path className="text-cyan-400" d="M0,200 L0,120 L100,120 L100,80 L150,80 L150,40 L175,20 L175,0 L185,0 L185,20 L210,40 L210,80 L260,80 L260,120 L400,120 L400,80 L450,80 L450,40 L500,10 L550,40 L550,80 L600,80 L600,40 L650,10 L700,40 L700,80 L750,80 L750,120 L900,120 L900,80 L950,80 L950,40 L975,20 L975,0 L985,0 L985,20 L1010,40 L1010,80 L1060,80 L1060,120 L1200,120 L1200,200 Z" fill="#06b6d4"/>
+      </svg>
+    </div>
+
+    <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+        {/* Left — Content */}
+        <div className="space-y-8">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-3 bg-cyan-500/10 border border-cyan-500/20 px-5 py-2 rounded-full">
+            <span className="text-lg">☪️</span>
+            <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Technology for Deen</span>
+          </div>
+
+          {/* Title */}
+          <div className="space-y-2">
+            <h2 className="text-6xl md:text-7xl font-display font-bold leading-none">
+              <span className="shimmer-text">AI Islam</span>
+            </h2>
+            <p className="text-cyan-400/60 text-lg font-medium tracking-wide">Technology for Deen, Benefit for Ummah</p>
+          </div>
+
+          {/* Arabic quote */}
+          <div className="border-l-2 border-cyan-500/40 pl-5 space-y-1">
+            <p className="text-2xl text-cyan-300/80 font-light" dir="rtl">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</p>
+            <p className="text-gray-500 text-sm italic">The best of people are those most beneficial to people. (Hadith)</p>
+          </div>
+
+          {/* Feature pills */}
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { icon: '📖', label: 'Quran Understanding' },
+              { icon: '🎓', label: 'Islamic Education' },
+              { icon: '🤲', label: 'Dawah & Guidance' },
+              { icon: '🌐', label: 'Ummah Connect' },
+            ].map(f => (
+              <div key={f.label} className="flex items-center gap-3 bg-white/5 border border-cyan-500/10 rounded-xl px-4 py-3 hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all duration-300">
+                <span className="text-xl">{f.icon}</span>
+                <span className="text-sm font-semibold text-gray-300">{f.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 pt-2">
+            <a
+              href="https://aiislam.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-black text-sm overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 glow-cyan"
+              style={{ background: 'linear-gradient(135deg, #06b6d4, #10b981)' }}
+            >
+              <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+              <span className="text-lg">🚀</span>
+              <span>Live Demo</span>
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <button className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm text-cyan-400 border border-cyan-500/30 bg-cyan-500/5 hover:bg-cyan-500/10 hover:border-cyan-500/60 transition-all duration-300 hover:scale-105">
+              <span>Learn More</span>
+            </button>
+          </div>
+
+          {/* Stats */}
+          <div className="flex gap-8 pt-2">
+            {[
+              { val: '10K+', label: 'Users' },
+              { val: '50+', label: 'Features' },
+              { val: '4.9★', label: 'Rating' },
+            ].map(s => (
+              <div key={s.label}>
+                <div className="text-2xl font-bold text-cyan-400">{s.val}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right — Visual card */}
+        <div className="relative float-anim">
+          {/* Outer glow ring */}
+          <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-emerald-500/10 to-cyan-500/20 blur-2xl" />
+
+          {/* Rotating geometric ring */}
+          <div className="absolute -inset-8 flex items-center justify-center pointer-events-none">
+            <div className="w-full h-full rounded-full border border-cyan-500/10 spin-slow" />
+          </div>
+
+          <div className="relative rounded-3xl overflow-hidden border border-cyan-500/20 bg-gradient-to-br from-[#041a20] to-[#020d10]"
+            style={{ boxShadow: '0 0 60px rgba(6,182,212,0.15), inset 0 0 60px rgba(6,182,212,0.05)' }}>
+
+            {/* Image */}
+            <img
+              src="/aiislam.jpg"
+              alt="AI Islam"
+              className="w-full object-cover"
+              style={{ minHeight: '400px' }}
+            />
+
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020c10]/80 via-transparent to-transparent" />
+
+            {/* Bottom info bar */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Live & Active</span>
+                </div>
+                <span className="text-xs text-gray-500">aiislam.vercel.app</span>
+              </div>
+              <a
+                href="https://aiislam.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm text-black transition-all hover:scale-[1.02] active:scale-95"
+                style={{ background: 'linear-gradient(135deg, #06b6d4, #10b981)', boxShadow: '0 0 20px rgba(6,182,212,0.4)' }}
+              >
+                🚀 Launch AI Islam
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// --- AI Usthad Showcase Section ---
+const AiUsthadSection = () => (
+  <section id="ai-usthad" className="relative overflow-hidden py-32 px-6">
+    {/* Cinematic background */}
+    <div className="absolute inset-0 bg-gradient-to-br from-[#020810] via-[#030a18] to-[#020810]" />
+
+    {/* Animated glow orbs */}
+    <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] animate-pulse" />
+    <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1.5s' }} />
+
+    {/* Islamic geometric pattern overlay */}
+    <div className="absolute inset-0 opacity-[0.03]" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233b82f6' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3Cpath d='M40 10 L50 25 L40 40 L30 25 Z M40 70 L50 55 L40 40 L30 55 Z M10 40 L25 30 L40 40 L25 50 Z M70 40 L55 30 L40 40 L55 50 Z'/%3E%3C/g%3E%3C/svg%3E")`,
+      backgroundSize: '80px 80px'
+    }} />
+
+    {/* Mosque silhouette */}
+    <div className="absolute bottom-0 left-0 right-0 h-32 opacity-5 flex items-end justify-center overflow-hidden">
+      <svg viewBox="0 0 1200 200" className="w-full" fill="#3b82f6">
+        <path d="M0,200 L0,130 L80,130 L80,90 L120,90 L120,50 L140,30 L140,10 L150,0 L160,10 L160,30 L180,50 L180,90 L220,90 L220,130 L350,130 L350,90 L420,90 L420,50 L480,10 L540,50 L540,90 L580,90 L580,50 L600,20 L620,50 L620,90 L660,90 L660,50 L720,10 L780,50 L780,90 L820,90 L820,130 L950,130 L950,90 L990,90 L990,50 L1010,30 L1010,10 L1020,0 L1030,10 L1030,30 L1050,50 L1050,90 L1090,90 L1090,130 L1200,130 L1200,200 Z"/>
+      </svg>
+    </div>
+
+    <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+        {/* Left — Visual card (reversed order) */}
+        <div className="relative float-anim order-2 lg:order-1" style={{ animationDelay: '0.5s' }}>
+          <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-blue-500/20 via-emerald-500/10 to-blue-500/20 blur-2xl" />
+          <div className="absolute -inset-8 flex items-center justify-center pointer-events-none">
+            <div className="w-full h-full rounded-full border border-blue-500/10 spin-slow" style={{ animationDirection: 'reverse' }} />
+          </div>
+
+          <div className="relative rounded-3xl overflow-hidden border border-blue-500/20 bg-gradient-to-br from-[#040d1a] to-[#020810]"
+            style={{ boxShadow: '0 0 60px rgba(59,130,246,0.15), inset 0 0 60px rgba(59,130,246,0.05)' }}>
+
+            <img
+              src="/aiusthad.jpg"
+              alt="AI Usthad"
+              className="w-full object-cover"
+              style={{ minHeight: '400px' }}
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020810]/80 via-transparent to-transparent" />
+
+            <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Live & Active</span>
+                </div>
+                <span className="text-xs text-gray-500">aiusthad.vercel.app</span>
+              </div>
+              <a
+                href="https://aiusthad.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm text-white transition-all hover:scale-[1.02] active:scale-95"
+                style={{ background: 'linear-gradient(135deg, #3b82f6, #10b981)', boxShadow: '0 0 20px rgba(59,130,246,0.4)' }}
+              >
+                🚀 Launch AI Usthad
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Right — Content */}
+        <div className="space-y-8 order-1 lg:order-2">
+          <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/20 px-5 py-2 rounded-full">
+            <span className="text-lg">🕌</span>
+            <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">Your Islamic AI Teacher</span>
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-6xl md:text-7xl font-display font-bold leading-none">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-blue-400">AI Usthad</span>
+            </h2>
+            <p className="text-blue-400/60 text-lg font-medium tracking-wide">Knowledge. Guidance. Wisdom.</p>
+          </div>
+
+          <div className="border-l-2 border-blue-500/40 pl-5 space-y-1">
+            <p className="text-2xl text-blue-300/80 font-light" dir="rtl">الْعِلْمُ نُورٌ وَالْهِدَايَةُ رَحْمَةٌ</p>
+            <p className="text-gray-500 text-sm italic">Knowledge is light and guidance is mercy.</p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { icon: '📚', label: 'Islamic Knowledge' },
+              { icon: '🧑‍🏫', label: 'Personal Guidance' },
+              { icon: '💬', label: 'Clear Explanations' },
+              { icon: '💚', label: 'Spiritual Growth' },
+            ].map(f => (
+              <div key={f.label} className="flex items-center gap-3 bg-white/5 border border-blue-500/10 rounded-xl px-4 py-3 hover:border-blue-500/30 hover:bg-blue-500/5 transition-all duration-300">
+                <span className="text-xl">{f.icon}</span>
+                <span className="text-sm font-semibold text-gray-300">{f.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-4 pt-2">
+            <a
+              href="https://aiusthad.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white text-sm overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95"
+              style={{
+                background: 'linear-gradient(135deg, #3b82f6, #10b981)',
+                boxShadow: '0 0 25px rgba(59,130,246,0.4), 0 0 50px rgba(59,130,246,0.2)'
+              }}
+            >
+              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+              <span className="text-lg">🚀</span>
+              <span>Live Demo</span>
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <button className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm text-blue-400 border border-blue-500/30 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/60 transition-all duration-300 hover:scale-105">
+              <span>Learn More</span>
+            </button>
+          </div>
+
+          <div className="flex gap-8 pt-2">
+            {[
+              { val: '5K+', label: 'Students' },
+              { val: '100+', label: 'Topics' },
+              { val: '4.8★', label: 'Rating' },
+            ].map(s => (
+              <div key={s.label}>
+                <div className="text-2xl font-bold text-blue-400">{s.val}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+
 const WorkSection = () => {
   const [filter, setFilter] = useState('All');
 
@@ -543,84 +824,84 @@ const WorkSection = () => {
       category: 'Web Design & Development',
       tags: ['WEB DESIGN & DEVELOPMENT'],
       desc: 'Exam Management Portal | Custom Application Development',
-      img: 'https://images.unsplash.com/photo-1588702547919-26089e690ecc?q=80&w=2670&auto=format&fit=crop',
+      img: '/exam-portal.jpg',
     },
     {
       title: 'Mileage Calculator Pro | App Available on iOS & Android',
       category: 'Mobile / Cross-Platform Application',
       tags: ['MOBILE / CROSS - PLATFORM APPLICATION'],
       desc: 'Mileage Calculator Pro | App Available on iOS & Android by MyRace',
-      img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop',
+      img: '/mileage.jpg',
     },
     {
       title: 'Kareemgraphy Wikipedia Profile Page',
       category: 'Wikipedia',
       tags: ['WIKIPEDIA'],
       desc: 'This project documents my contribution to Wikipedia through the creation and structured development of the...',
-      img: 'https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=2670&auto=format&fit=crop',
+      img: '/wikipedia.jpg',
     },
     {
       title: 'Branding Kit for Pharmacy | Logo Design',
       category: 'Branding / Logo',
       tags: ['BRANDING / LOGO'],
       desc: 'Branding Kit for the YAS Pharmacy | Logo Design',
-      img: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=2669&auto=format&fit=crop',
+      img: '/pharmacy-branding.jpg',
     },
     {
       title: 'Website Design | Modern UI/UX for Laundry Service',
       category: 'Web Design & Development',
       tags: ['WEB DESIGN & DEVELOPMENT'],
       desc: 'A beautiful website design for Laundry Day to elevate their digital presence and customer...',
-      img: 'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?q=80&w=2671&auto=format&fit=crop',
+      img: '/laundry.jpg',
     },
     {
       title: 'Stream Now - Free Live TV Streaming App',
       category: 'Mobile / Cross-Platform Application',
       tags: ['MOBILE / CROSS - PLATFORM APPLICATION'],
       desc: 'A cross-platform application built for streaming live TV for unlimited language channels and other...',
-      img: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=2670&auto=format&fit=crop',
+      img: '/streamnow.jpg',
     },
     {
       title: 'E-Commerce Platform for Al Hayba Clothing Brand',
       category: 'E-Commerce',
       tags: ['E-COMMERCE'],
       desc: 'A modern, full-featured e-commerce platform built with Laravel 12',
-      img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2670&auto=format&fit=crop',
+      img: '/alhayba.jpg',
     },
     {
       title: 'Responsive Website Design',
       category: 'Web Design & Development',
       tags: ['WEB DESIGN & DEVELOPMENT'],
       desc: 'Responsive Website Design for the NID Atelier LLC',
-      img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2669&auto=format&fit=crop',
+      img: '/responsive-web.jpg',
     },
     {
       title: 'Responsive & Mobile Friendly Campus Website',
       category: 'Web Design & Development',
       tags: ['WEB DESIGN & DEVELOPMENT'],
       desc: 'Responsive & Mobile Friendly Campus Website',
-      img: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2666&auto=format&fit=crop',
+      img: '/campus.jpg',
     },
     {
       title: 'Social Media Design for College Tour',
       category: 'Graphic Design',
       tags: ['GRAPHIC DESIGN'],
       desc: 'Social Media Design for College Tour',
-      img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2674&auto=format&fit=crop',
+      img: '/college-tour.jpg',
     },
     {
       title: 'Responsive Website | UI/UX',
       category: 'Web Design & Development',
       tags: ['WEB DESIGN & DEVELOPMENT'],
       desc: 'Responsive Website | UI/UX',
-      img: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2655&auto=format&fit=crop',
+      img: '/responsive-uiux.jpg',
     },
     {
       title: 'Newspaper Ads Design',
       category: 'Brochure / Print Design',
       tags: ['BROCHURE / PRINT DESIGN'],
       desc: 'Newspaper Ads Design',
-      img: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2670&auto=format&fit=crop',
+      img: '/newspaper-ads.jpg',
     },
   ];
 
@@ -989,6 +1270,8 @@ export default function App() {
         <ServicesSection />
         <SkillsSection />
         <ProjectsSection />
+        <AiIslamSection />
+        <AiUsthadSection />
         <WorkSection />
         <BlogSection />
         <ContactSection />
