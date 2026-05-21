@@ -805,7 +805,22 @@ const BlogSection = () => {
 };
 
 // --- Contact Section ---
-const ContactSection = () => (
+const ContactSection = () => {
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) return;
+    const messages = JSON.parse(localStorage.getItem('portfolio_messages') || '[]');
+    messages.unshift({ ...form, id: Date.now(), date: new Date().toLocaleString(), read: false });
+    localStorage.setItem('portfolio_messages', JSON.stringify(messages));
+    setSent(true);
+    setForm({ name: '', email: '', subject: '', message: '' });
+    setTimeout(() => setSent(false), 4000);
+  };
+
+  return (
   <Section id="contact">
     <div className="text-center space-y-4 mb-20">
       <h2 className="text-6xl font-display font-bold">Let's Work Together</h2>
@@ -817,24 +832,29 @@ const ContactSection = () => (
     <div className="grid md:grid-cols-[1.5fr_1fr] gap-12">
       <div className="glass-card p-10 space-y-8">
         <h3 className="text-2xl font-bold">Send me a message</h3>
-        <form className="grid gap-6">
+        <form className="grid gap-6" onSubmit={handleSubmit}>
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-400">Full Name</label>
-            <input type="text" placeholder="John Doe" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-purple-500/50 transition-all font-medium" />
+            <input type="text" placeholder="John Doe" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-purple-500/50 transition-all font-medium" />
           </div>
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-400">Email Address</label>
-            <input type="email" placeholder="john@example.com" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-purple-500/50 transition-all font-medium" />
+            <input type="email" placeholder="john@example.com" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-purple-500/50 transition-all font-medium" />
           </div>
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-400">Subject</label>
-            <input type="text" placeholder="Project Collaboration" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-purple-500/50 transition-all font-medium" />
+            <input type="text" placeholder="Project Collaboration" value={form.subject} onChange={e => setForm(p => ({ ...p, subject: e.target.value }))} className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-purple-500/50 transition-all font-medium" />
           </div>
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-400">Message</label>
-            <textarea placeholder="Tell me about your project..." rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-purple-500/50 transition-all font-medium resize-none" />
+            <textarea placeholder="Tell me about your project..." rows={4} value={form.message} onChange={e => setForm(p => ({ ...p, message: e.target.value }))} className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-purple-500/50 transition-all font-medium resize-none" />
           </div>
-          <button className="flex items-center justify-center gap-2 bg-[#10b981] hover:bg-[#059669] text-white py-5 rounded-xl font-bold transition-all shadow-lg shadow-emerald-500/20">
+          {sent && (
+            <div className="flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-5 py-4 text-emerald-400 text-sm font-semibold">
+              <CheckCircle2 size={18} /> Message sent successfully!
+            </div>
+          )}
+          <button type="submit" className="flex items-center justify-center gap-2 bg-[#10b981] hover:bg-[#059669] text-white py-5 rounded-xl font-bold transition-all shadow-lg shadow-emerald-500/20">
             <span className="rotate-[-45deg]"><ArrowRight size={20} /></span> Send Message
           </button>
         </form>
@@ -947,7 +967,8 @@ const ContactSection = () => (
       </div>
     </div>
   </Section>
-);
+  );
+};
 
 // --- App ---
 export default function App() {
