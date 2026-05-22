@@ -50,7 +50,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ['home', 'about', 'services', 'skills', 'experience', 'featured', 'projects', 'work', 'articles', 'blog', 'contact'];
+      const sections = ['home', 'about', 'services', 'skills', 'experience', 'featured', 'projects', 'work', 'design', 'articles', 'blog', 'contact'];
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
@@ -72,6 +72,7 @@ const Navbar = () => {
     { name: 'Featured', id: 'featured' },
     { name: 'Projects', id: 'projects' },
     { name: 'Work', id: 'work' },
+    { name: 'Design', id: 'design' },
     { name: 'Articles', id: 'articles' },
     { name: 'Blog', id: 'blog' },
     { name: 'Contact', id: 'contact' },
@@ -1515,6 +1516,98 @@ const WorkSection = () => {
   );
 };
 
+// --- Design Work Section ---
+const DesignWorkSection = () => {
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const designs = [
+    { img: '/design1.jpg', title: 'Porsche 911 GT3 RS', category: 'Automotive Design', desc: 'Precision engineered promotional poster for the Porsche 911 GT3 RS Manthey Concept — Track Bred. Limitless.' },
+    { img: '/design2.jpg', title: 'Design Work 2', category: 'Graphic Design', desc: 'Creative graphic design work showcasing visual identity and branding.' },
+    { img: '/design3.jpg', title: 'Design Work 3', category: 'Branding', desc: 'Brand identity and visual design project.' },
+    { img: '/design4.jpg', title: 'Design Work 4', category: 'Poster Design', desc: 'Cinematic poster design with premium visual aesthetics.' },
+    { img: '/design5.jpg', title: 'Design Work 5', category: 'Digital Art', desc: 'Digital artwork and creative illustration.' },
+    { img: '/design6.jpg', title: 'Design Work 6', category: 'UI Design', desc: 'Modern UI design with clean aesthetics.' },
+    { img: '/design7.jpg', title: 'Design Work 7', category: 'Graphic Design', desc: 'Creative visual design with bold typography and composition.' },
+    { img: '/design8.jpg', title: 'Design Work 8', category: 'Poster Design', desc: 'Premium poster design with cinematic visual storytelling.' },
+    { img: '/design9.jpg', title: 'Design Work 9', category: 'Branding', desc: 'Brand identity design with modern aesthetics and clean visuals.' },
+    { img: '/design10.jpg', title: 'Design Work 10', category: 'Digital Art', desc: 'Digital artwork combining creativity and technical precision.' },
+  ];
+
+  return (
+    <Section id="design">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-12">
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 px-4 py-1.5 rounded-full text-xs font-bold text-purple-400">
+            <Palette size={12} /> DESIGN WORK
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
+            Creative <span className="text-purple-500">Designs</span>
+          </h2>
+          <p className="text-gray-400 text-sm max-w-md">A collection of graphic design, branding, and visual art projects crafted with precision and passion.</p>
+        </div>
+      </div>
+
+      {/* Masonry Grid */}
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        {designs.map((d, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: idx * 0.07 }}
+            className="break-inside-avoid group relative rounded-2xl overflow-hidden border border-white/10 cursor-pointer hover:border-purple-500/50 transition-all duration-500"
+            onClick={() => setSelected(d.img)}
+          >
+            <img
+              src={d.img}
+              alt={d.title}
+              className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-5">
+              <span className="text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-1">{d.category}</span>
+              <h3 className="text-white font-bold text-sm">{d.title}</h3>
+              <p className="text-gray-300 text-xs mt-1 line-clamp-2">{d.desc}</p>
+              <div className="mt-3 flex items-center gap-1.5 text-purple-400 text-xs font-bold">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                View Full
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Lightbox */}
+      {selected && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setSelected(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            className="relative max-w-4xl max-h-[90vh] w-full"
+            onClick={e => e.stopPropagation()}
+          >
+            <img src={selected} alt="Design" className="w-full h-full object-contain rounded-2xl" />
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute top-3 right-3 w-9 h-9 bg-black/60 hover:bg-black/80 border border-white/20 rounded-full flex items-center justify-center text-white transition-all"
+            >
+              <X size={18} />
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
+    </Section>
+  );
+};
+
 // --- Latest Articles Section ---
 const LatestArticlesSection = () => {
   const articles = [
@@ -1929,6 +2022,7 @@ export default function App() {
         <AiIslamSection />
         <AiUsthadSection />
         <WorkSection />
+        <DesignWorkSection />
         <LatestArticlesSection />
         <BlogSection />
         <ContactSection />
