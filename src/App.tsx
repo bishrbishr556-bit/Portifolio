@@ -50,7 +50,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ['home', 'about', 'services', 'skills', 'experience', 'featured', 'projects', 'work', 'design', 'articles', 'blog', 'contact'];
+      const sections = ['home', 'about', 'services', 'skills', 'featured', 'projects', 'work', 'blog', 'contact'];
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
@@ -68,12 +68,9 @@ const Navbar = () => {
     { name: 'About', id: 'about' },
     { name: 'Services', id: 'services' },
     { name: 'Skills', id: 'skills' },
-    { name: 'Experience', id: 'experience' },
     { name: 'Featured', id: 'featured' },
     { name: 'Projects', id: 'projects' },
     { name: 'Work', id: 'work' },
-    { name: 'Design', id: 'design' },
-    { name: 'Articles', id: 'articles' },
     { name: 'Blog', id: 'blog' },
     { name: 'Contact', id: 'contact' },
   ];
@@ -689,139 +686,6 @@ const SkillsSection = () => {
   );
 };
 
-// --- Experience Section ---
-const ExperienceSection = () => {
-  const experiences = [
-    {
-      period: '2023 – Present',
-      role: 'Web Developer',
-      company: 'Freelance / Self-Employed',
-      desc: 'Working on web development projects and building modern web applications for clients worldwide.',
-      active: true,
-    },
-    {
-      period: '2022 – 2023',
-      role: 'Frontend Developer',
-      company: 'CodeCraft',
-      desc: 'Developed responsive websites and improved UI/UX for clients across various industries.',
-      active: false,
-    },
-    {
-      period: '2021 – 2022',
-      role: 'Junior Developer',
-      company: 'Webify',
-      desc: 'Assisted in building websites and learning modern technologies including React and Node.js.',
-      active: false,
-    },
-  ];
-
-  return (
-    <Section id="experience">
-      <div className="grid lg:grid-cols-2 gap-6">
-
-        {/* Experience Timeline Card */}
-        <div className="relative rounded-2xl overflow-hidden border border-white/8 p-8"
-          style={{ background: 'linear-gradient(135deg, #0d0d1f 0%, #0a0a18 100%)' }}>
-
-          {/* Purple glow orb top-right */}
-          <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none">
-            <div className="absolute top-4 right-4 w-40 h-40 rounded-full"
-              style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.4) 0%, rgba(139,92,246,0.1) 50%, transparent 70%)' }} />
-            <div className="absolute top-8 right-8 w-28 h-28 rounded-full border border-purple-500/20"
-              style={{ boxShadow: '0 0 40px rgba(139,92,246,0.3), inset 0 0 40px rgba(139,92,246,0.1)' }} />
-            <div className="absolute top-12 right-12 w-16 h-16 rounded-full"
-              style={{ background: 'radial-gradient(circle, rgba(167,139,250,0.8) 0%, rgba(139,92,246,0.4) 50%, transparent 70%)', boxShadow: '0 0 30px rgba(167,139,250,0.6)' }} />
-          </div>
-
-          {/* Header */}
-          <div className="flex items-center gap-3 mb-8 relative z-10">
-            <div className="w-8 h-8 rounded-full border-2 border-purple-500/50 flex items-center justify-center">
-              <div className="w-3 h-3 rounded-full bg-purple-500" />
-            </div>
-            <h2 className="text-xl font-bold text-white">My Experience</h2>
-          </div>
-
-          {/* Timeline */}
-          <div className="relative z-10 space-y-0">
-            {experiences.map((exp, idx) => (
-              <div key={idx} className="flex gap-5">
-                {/* Timeline line + dot */}
-                <div className="flex flex-col items-center">
-                  <div className={`w-3 h-3 rounded-full mt-1 shrink-0 ${exp.active ? 'bg-purple-500 shadow-lg shadow-purple-500/50' : 'bg-purple-500/40'}`} />
-                  {idx < experiences.length - 1 && (
-                    <div className="w-px flex-1 bg-purple-500/20 my-1" style={{ minHeight: '60px' }} />
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className={`pb-8 ${idx === experiences.length - 1 ? 'pb-0' : ''}`}>
-                  <div className="text-xs text-gray-500 font-medium mb-1">{exp.period}</div>
-                  <div className="font-bold text-white text-sm">{exp.role}</div>
-                  <div className="text-purple-400 text-xs font-medium mb-1">{exp.company}</div>
-                  <div className="text-gray-400 text-xs leading-relaxed">{exp.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Card */}
-        <div className="relative rounded-2xl overflow-hidden border border-purple-500/20 p-8 flex flex-col justify-between"
-          style={{ background: 'linear-gradient(135deg, #0d0a1f 0%, #0a0818 100%)', minHeight: '320px' }}>
-
-          {/* Stars background */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(20)].map((_, i) => (
-              <div key={i} className="absolute w-0.5 h-0.5 bg-white rounded-full opacity-40"
-                style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` }} />
-            ))}
-          </div>
-
-          {/* Astronaut illustration (right side) */}
-          <div className="absolute right-0 bottom-0 w-48 h-48 pointer-events-none opacity-80">
-            <svg viewBox="0 0 200 200" className="w-full h-full">
-              {/* Simple astronaut silhouette */}
-              <circle cx="120" cy="60" r="28" fill="#7c3aed" opacity="0.9"/>
-              <circle cx="120" cy="60" r="22" fill="#1e1b4b"/>
-              <ellipse cx="120" cy="60" rx="14" ry="12" fill="#312e81" opacity="0.8"/>
-              <rect x="96" y="85" width="48" height="55" rx="12" fill="#7c3aed" opacity="0.85"/>
-              <rect x="104" y="95" width="32" height="20" rx="4" fill="#4c1d95" opacity="0.9"/>
-              <rect x="78" y="90" width="18" height="40" rx="9" fill="#7c3aed" opacity="0.8"/>
-              <rect x="144" y="90" width="18" height="40" rx="9" fill="#7c3aed" opacity="0.8"/>
-              <rect x="100" y="138" width="16" height="38" rx="8" fill="#6d28d9" opacity="0.85"/>
-              <rect x="124" y="138" width="16" height="38" rx="8" fill="#6d28d9" opacity="0.85"/>
-              <circle cx="155" cy="165" r="14" fill="#4c1d95" opacity="0.7"/>
-              {/* Visor shine */}
-              <ellipse cx="115" cy="55" rx="6" ry="5" fill="white" opacity="0.15"/>
-              {/* Glow */}
-              <circle cx="120" cy="60" r="32" fill="none" stroke="#a78bfa" strokeWidth="1" opacity="0.3"/>
-            </svg>
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 space-y-4 max-w-xs">
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-white leading-tight">
-              Let's Build Something Amazing Together!
-            </h2>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              I'm always open to discussing new projects and creative ideas.
-            </p>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-purple-600/30"
-            >
-              Let's Talk
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-};
-
 // --- Featured Projects Section ---
 const FeaturedSection = () => {
   const featured = [
@@ -1044,6 +908,53 @@ const ProjectsSection = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* My Design subsection */}
+      <div className="mt-32">
+        <div className="flex items-center gap-4 mb-10">
+          <div className="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
+            <Palette size={18} className="text-purple-400" />
+          </div>
+          <div>
+            <h3 className="text-3xl font-display font-bold text-white">My <span className="text-purple-500">Design</span></h3>
+            <p className="text-gray-400 text-sm mt-0.5">Creative design work — posters, branding, and visual art</p>
+          </div>
+        </div>
+
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+          {[
+            { img: '/design1.jpg', title: 'Porsche 911 GT3 RS', category: 'Automotive Design' },
+            { img: '/design2.jpg', title: 'Design Work 2', category: 'Graphic Design' },
+            { img: '/design3.jpg', title: 'Design Work 3', category: 'Branding' },
+            { img: '/design4.jpg', title: 'Design Work 4', category: 'Poster Design' },
+            { img: '/design5.jpg', title: 'Design Work 5', category: 'Digital Art' },
+            { img: '/design6.jpg', title: 'Design Work 6', category: 'UI Design' },
+            { img: '/design7.jpg', title: 'Design Work 7', category: 'Graphic Design' },
+            { img: '/design8.jpg', title: 'Design Work 8', category: 'Poster Design' },
+            { img: '/design9.jpg', title: 'Design Work 9', category: 'Branding' },
+            { img: '/design10.jpg', title: 'Design Work 10', category: 'Digital Art' },
+          ].map((d, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="break-inside-avoid group relative rounded-2xl overflow-hidden border border-white/10 cursor-pointer hover:border-purple-500/50 transition-all duration-500"
+            >
+              <img
+                src={d.img}
+                alt={d.title}
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-4">
+                <span className="text-[10px] font-bold text-purple-400 uppercase tracking-widest">{d.category}</span>
+                <h4 className="text-white font-bold text-sm mt-0.5">{d.title}</h4>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </Section>
   );
@@ -1516,208 +1427,6 @@ const WorkSection = () => {
   );
 };
 
-// --- Design Work Section ---
-const DesignWorkSection = () => {
-  const [selected, setSelected] = useState<string | null>(null);
-
-  const designs = [
-    { img: '/design1.jpg', title: 'Porsche 911 GT3 RS', category: 'Automotive Design', desc: 'Precision engineered promotional poster for the Porsche 911 GT3 RS Manthey Concept — Track Bred. Limitless.' },
-    { img: '/design2.jpg', title: 'Design Work 2', category: 'Graphic Design', desc: 'Creative graphic design work showcasing visual identity and branding.' },
-    { img: '/design3.jpg', title: 'Design Work 3', category: 'Branding', desc: 'Brand identity and visual design project.' },
-    { img: '/design4.jpg', title: 'Design Work 4', category: 'Poster Design', desc: 'Cinematic poster design with premium visual aesthetics.' },
-    { img: '/design5.jpg', title: 'Design Work 5', category: 'Digital Art', desc: 'Digital artwork and creative illustration.' },
-    { img: '/design6.jpg', title: 'Design Work 6', category: 'UI Design', desc: 'Modern UI design with clean aesthetics.' },
-    { img: '/design7.jpg', title: 'Design Work 7', category: 'Graphic Design', desc: 'Creative visual design with bold typography and composition.' },
-    { img: '/design8.jpg', title: 'Design Work 8', category: 'Poster Design', desc: 'Premium poster design with cinematic visual storytelling.' },
-    { img: '/design9.jpg', title: 'Design Work 9', category: 'Branding', desc: 'Brand identity design with modern aesthetics and clean visuals.' },
-    { img: '/design10.jpg', title: 'Design Work 10', category: 'Digital Art', desc: 'Digital artwork combining creativity and technical precision.' },
-  ];
-
-  return (
-    <Section id="design">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-12">
-        <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 px-4 py-1.5 rounded-full text-xs font-bold text-purple-400">
-            <Palette size={12} /> DESIGN WORK
-          </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
-            Creative <span className="text-purple-500">Designs</span>
-          </h2>
-          <p className="text-gray-400 text-sm max-w-md">A collection of graphic design, branding, and visual art projects crafted with precision and passion.</p>
-        </div>
-      </div>
-
-      {/* Masonry Grid */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-        {designs.map((d, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: idx * 0.07 }}
-            className="break-inside-avoid group relative rounded-2xl overflow-hidden border border-white/10 cursor-pointer hover:border-purple-500/50 transition-all duration-500"
-            onClick={() => setSelected(d.img)}
-          >
-            <img
-              src={d.img}
-              alt={d.title}
-              className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            {/* Hover overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-5">
-              <span className="text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-1">{d.category}</span>
-              <h3 className="text-white font-bold text-sm">{d.title}</h3>
-              <p className="text-gray-300 text-xs mt-1 line-clamp-2">{d.desc}</p>
-              <div className="mt-3 flex items-center gap-1.5 text-purple-400 text-xs font-bold">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-                View Full
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Lightbox */}
-      {selected && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-          onClick={() => setSelected(null)}
-        >
-          <motion.div
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            className="relative max-w-4xl max-h-[90vh] w-full"
-            onClick={e => e.stopPropagation()}
-          >
-            <img src={selected} alt="Design" className="w-full h-full object-contain rounded-2xl" />
-            <button
-              onClick={() => setSelected(null)}
-              className="absolute top-3 right-3 w-9 h-9 bg-black/60 hover:bg-black/80 border border-white/20 rounded-full flex items-center justify-center text-white transition-all"
-            >
-              <X size={18} />
-            </button>
-          </motion.div>
-        </motion.div>
-      )}
-    </Section>
-  );
-};
-
-// --- Latest Articles Section ---
-const LatestArticlesSection = () => {
-  const articles = [
-    {
-      category: 'Web Development',
-      categoryColor: 'text-purple-400',
-      title: '10 Tips to Improve Your Web Development Skills',
-      date: 'May 10, 2024',
-      readTime: '5 min read',
-      img: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=800&auto=format&fit=crop',
-      imgDark: true,
-    },
-    {
-      category: 'UI/UX Design',
-      categoryColor: 'text-purple-400',
-      title: 'Best UI/UX Design Principles for 2024',
-      date: 'Apr 28, 2024',
-      readTime: '6 min read',
-      img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop',
-      imgDark: true,
-    },
-    {
-      category: 'Tools',
-      categoryColor: 'text-purple-400',
-      title: 'Top 5 Tools Every Developer Should Use',
-      date: 'Apr 15, 2024',
-      readTime: '4 min read',
-      img: 'https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=800&auto=format&fit=crop',
-      imgDark: true,
-    },
-  ];
-
-  return (
-    <Section id="articles">
-      {/* Outer container matching design */}
-      <div className="bg-white/3 border border-white/8 rounded-2xl p-8" style={{ background: 'rgba(255,255,255,0.02)' }}>
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
-              <svg className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="7" height="7" rx="1" strokeWidth="2"/>
-                <rect x="14" y="3" width="7" height="7" rx="1" strokeWidth="2"/>
-                <rect x="3" y="14" width="7" height="7" rx="1" strokeWidth="2"/>
-                <rect x="14" y="14" width="7" height="7" rx="1" strokeWidth="2"/>
-              </svg>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-white">Latest Articles</h2>
-          </div>
-          <button
-            onClick={() => scrollToSection('blog')}
-            className="hidden sm:flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/40 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-all"
-          >
-            View All Articles <ChevronRight size={16} />
-          </button>
-        </div>
-
-        {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {articles.map((article, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group rounded-xl overflow-hidden border border-white/8 hover:border-purple-500/40 transition-all duration-500 hover:-translate-y-1 cursor-pointer"
-              style={{ background: 'rgba(255,255,255,0.03)' }}
-              onClick={() => scrollToSection('blog')}
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden" style={{ height: '180px' }}>
-                <img
-                  src={article.img}
-                  alt={article.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d1f]/80 to-transparent" />
-              </div>
-
-              {/* Content */}
-              <div className="p-5 space-y-3">
-                <span className={`text-xs font-bold ${article.categoryColor}`}>{article.category}</span>
-                <h3 className="text-base font-bold text-white leading-snug group-hover:text-purple-300 transition-colors">
-                  {article.title}
-                </h3>
-                <div className="flex items-center gap-3 text-xs text-gray-500">
-                  <span>{article.date}</span>
-                  <span className="w-1 h-1 bg-gray-600 rounded-full" />
-                  <span>{article.readTime}</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Mobile button */}
-        <div className="mt-6 flex justify-center sm:hidden">
-          <button
-            onClick={() => scrollToSection('blog')}
-            className="flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-xl text-sm font-bold transition-all"
-          >
-            View All Articles <ChevronRight size={16} />
-          </button>
-        </div>
-      </div>
-    </Section>
-  );
-};
-
 // --- Blog Section ---
 const BlogSection = () => {
   const posts = [
@@ -2016,14 +1725,11 @@ export default function App() {
         <AboutSection />
         <ServicesSection />
         <SkillsSection />
-        <ExperienceSection />
         <FeaturedSection />
         <ProjectsSection />
         <AiIslamSection />
         <AiUsthadSection />
         <WorkSection />
-        <DesignWorkSection />
-        <LatestArticlesSection />
         <BlogSection />
         <ContactSection />
       </main>
