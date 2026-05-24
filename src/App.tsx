@@ -1629,7 +1629,7 @@ const ContactSection = () => {
         <div className="glass-card p-6 flex flex-col gap-6">
           <h3 className="text-xl font-bold">Get in touch</h3>
           {[
-            { icon: <Mail />, label: 'Email', val: 'hello@razi.me' },
+            { icon: <Mail />, label: 'Email', val: 'hello@bishr.me' },
             { icon: <Phone />, label: 'Phone', val: '+91 8129489071' },
             { icon: <MapPin />, label: 'Location', val: 'Kerala, India' }
           ].map((item, i) => (
@@ -1718,6 +1718,59 @@ const ContactSection = () => {
   );
 };
 
+// --- Cinematic Social Banner ---
+const SocialBanner = () => {
+  const items = [
+    { label: 'MAIL', href: 'mailto:hello@bishr.me' },
+    { label: 'FCB', href: '#' },
+    { label: 'WTSP', href: 'https://wa.me/918129489071' },
+    { label: 'IG', href: 'https://www.instagram.com/' },
+  ];
+
+  // Duplicate for seamless loop
+  const all = [...items, ...items, ...items, ...items];
+
+  return (
+    <div className="relative overflow-hidden py-5" style={{ background: '#0a0a0a', borderTop: '1px solid #1a1a1a', borderBottom: '1px solid #1a1a1a' }}>
+      {/* Left/right fade masks */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #0a0a0a, transparent)' }} />
+      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #0a0a0a, transparent)' }} />
+
+      <div className="marquee-track">
+        {all.map((item, i) => (
+          <a
+            key={i}
+            href={item.href}
+            target={item.href.startsWith('http') ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            className="flex items-center gap-0 shrink-0 group"
+          >
+            <span
+              className="font-black uppercase px-6 transition-colors duration-200 group-hover:opacity-70"
+              style={{
+                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                fontFamily: '"Space Grotesk", sans-serif',
+                letterSpacing: '-0.02em',
+                lineHeight: 1,
+                color: '#c8ff00',
+                textShadow: '0 0 30px rgba(200,255,0,0.4)',
+              }}
+            >
+              {item.label}
+            </span>
+            <span
+              className="shrink-0 mx-1"
+              style={{ color: 'rgba(200,255,0,0.5)', fontSize: '1rem' }}
+            >
+              ✦
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // --- App ---
 export default function App() {
   return (
@@ -1743,6 +1796,7 @@ export default function App() {
         <WorkSection />
         <BlogSection />
         <ContactSection />
+        <SocialBanner />
       </main>
 
       <footer className="py-12 px-6 border-t border-white/5 mt-20">

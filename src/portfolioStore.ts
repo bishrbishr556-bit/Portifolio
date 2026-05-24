@@ -99,7 +99,7 @@ export const defaultData: PortfolioData = {
     profileImage: '/profile.jpg',
   },
   contact: {
-    email: 'hello@razi.me',
+    email: 'hello@bishr.me',
     phone: '+91 8129489071',
     location: 'Kerala, India',
     whatsapp: '918129489071',
