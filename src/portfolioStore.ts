@@ -86,7 +86,7 @@ export const defaultData: PortfolioData = {
     resumeUrl: '#',
     profileImage: '/profile.jpg',
     tags: ['Web Development', 'Graphic Design', 'Digital Marketing'],
-    socials: { github: '#', linkedin: '#', instagram: '#', twitter: '#' },
+    socials: { github: 'https://github.com/bishrbishr556-bit', linkedin: 'https://www.linkedin.com/in/bishr-mhd-62a422411/', instagram: 'https://www.instagram.com/', pinterest: 'https://in.pinterest.com/PixeloraX/' },
   },
   about: {
     bio1: "I'm Bishr, expert Web Designer & Developer in Malappuram, Kerala with over 1 year of experience in creating digital experiences that drive business results.",
