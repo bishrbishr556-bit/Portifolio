@@ -90,16 +90,4 @@
 .slide-up-4 { animation: slide-up-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.7s both; }
 .sparkle { animation: sparkle-spin 2s linear infinite; display: inline-block; }
 
-/* Marquee ticker */
-@keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.marquee-track {
-  animation: marquee-scroll 12s linear infinite;
-  display: flex;
-  width: max-content;
-}
-.marquee-track:hover {
-  animation-play-state: paused;
-}
+
