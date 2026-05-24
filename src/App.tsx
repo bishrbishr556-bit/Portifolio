@@ -6,6 +6,7 @@
 import { motion } from 'motion/react';
 import { Github, Linkedin, Instagram, MessageCircle, ArrowRight, Download, Menu, X, Mail, Phone, MapPin, Globe, CheckCircle2, ChevronRight, Palette, Search, Megaphone, Terminal, Server, LayoutGrid } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
+import ChatWidget from './ChatWidget';
 
 // --- Smooth scroll helper ---
 const scrollToSection = (id: string) => {
@@ -1763,25 +1764,8 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
-      <div className="fixed bottom-8 right-8 z-40 flex items-center gap-4">
-        <div className="bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-5 py-2 text-xs font-bold text-white shadow-2xl hidden sm:flex items-center gap-2">
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          Need help? Let's Discuss!
-        </div>
-        <a
-          href="https://wa.me/918129489071"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-14 h-14 bg-[#10b981] hover:bg-[#059669] rounded-full flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 transition-all hover:scale-110 active:scale-95 relative"
-        >
-          <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 border-2 border-[#030014] rounded-full flex items-center justify-center text-[10px] font-bold">1</div>
-          <MessageCircle size={28} />
-        </a>
-      </div>
+      {/* Live Chat Widget */}
+      <ChatWidget />
     </div>
   );
 }
